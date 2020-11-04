@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="result"></div>
+        <input class="input" type="number" name="input" id="input">
+    </div>
+    <script>
+        var result = 0;
+        var number = []
+        var operasi = ""
+        var helper = true;
+
+        $(document).ready(function () {
+            $(document).keypress(function (event) {
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if (keycode == '13') {
+                    if (operasi === "*") {
+                        result = result * $('.input').val()
+                    } else if (operasi === "+") {
+                        result = parseInt(result) + parseInt($('.input').val())
+                    }
+                    number.push($('.input').val())
+                    $('.result').html(number.join(' ') + " = ");
+                    $('.input').val(result);
+                    // $('.input').val();
+                } else if (keycode == '42') {
+                    number.push($('.input').val())
+                    number.push("x")
+                    helper = true
+                    operasi = "x"
+
+                    if (result === 0) {
+                        result = $('.input').val()
+                        console.log(result)
+                    } else {
+                        result = result * $('.input').val()
+                    }
+
+                    $('.input').val("");
+                    if (number.length > 2) {
+                        $('.result').html(number.join(' '));
+                        $('.input').val(result);
+                    }
+                } else if (keycode == '43') {
+                    number.push($('.input').val())
+                    number.push("+")
+                    helper = true
+                    operasi = "+"
+
+                    if (result === 0) {
+                        result = $('.input').val()
+                        console.log(result)
+                    } else {
+                        result = parseInt(result) + parseInt($('.input').val())
+                    }
+
+                    $('.input').val("");
+                    if (number.length > 2) {
+                        $('.result').html(number.join(' '));
+                        $('.input').val(result);
+                    }
+                } else {
+                    if (number.length > 2) {
+                        if (helper) {
+                            alert(result)
+                            $('.input').val("");
+                            helper = false
+                        }
+                        else {
+                            null
+                        }
+                    }
+                }
+            });
+            $(document).keyup(function (event) {
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if (keycode == '27') {
+                    number = []
+                    helper = true
+                    result = 0
+                    $('.result').html(number.join(' '));
+                    $('.input').val("");
+                } else if(keycode=='43'){
+                    alert("HELL")
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

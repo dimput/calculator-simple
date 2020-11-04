@@ -1,0 +1,88 @@
+*{
+    padding:0px;
+    margin:0px;
+}
+
+textarea:focus, input:focus{
+    outline:1px solid black;
+}
+/* Chrome, Safari, Edge, Opera */
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.calculator {
+    background-color: #282c34;
+    min-height: 100vh;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+}
+
+.result {
+    width:414px;
+    padding: 10px;
+    background-color: #e4e4e4;
+    text-align:right;
+    color:#686868;
+    font-size: 18px;
+}
+
+.input{
+    width: 414px;
+    background-color: #e4e4e4;
+    padding: 10px;
+    text-align: right;
+    border: none;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.btn-group {
+    width: 414px;
+    padding: 10px;
+    background-color: #e4e4e4;
+}
+.btn button{
+    margin: 0px;
+    padding: 0px;
+    width: 25%;
+    float: left;
+    background-color: #e4e4e4;
+    font-size: 40px;
+    outline:none;
+    border:none;
+}
+.btn-two button{
+    margin: 0px;
+    padding: 0px;
+    width: 50%;
+    float: left;
+    background-color: #e4e4e4;
+    font-size: 40px;
+    outline:none;
+    border:none;
+}
+
+button.samadengan{
+    background-color: #ff9100;
+    font-weight: bold;
+    padding:10px 0;
+}
+button.ce{
+    background-color: #ff2f00;
+    font-weight: bold;
+    color: white;
+    padding:10px 0;
+}
